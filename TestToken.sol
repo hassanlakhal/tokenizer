@@ -7,7 +7,7 @@ contract TestToken is ERC20{
     ERC20(_name, _symbol){
         
     }
-    function mint(address to, uint256 amount) {
+    function mint(address to, uint256 amount) public {
         _mint(to, amount);
     }
 }
