@@ -1,44 +1,88 @@
-# Lak7alToken42
+# Lak7al Token 42 (HS42)
 
-Lak7alToken42 is a Solidity token base on Tokenizer project . The contract declares an ERC-20 token named **lak7al42** with the symbol **HS42**.
+> Status: Development. Update deployment and test details only after
+> verifying them.
 
-> **Status: not ready to compile or deploy.** The current contract contains compile-time errors. No network, deployed contract address, or verified explorer listing is present in this repository. Do not treat this project as a usable or production-ready token.
+## Overview
 
-## Project layout
+Lak7al Token 42 (`HS42`) is an Ethereum ERC-20 token using OpenZeppelin
+Contracts. The current design provides standard ERC-20 transfers and
+allowances, an initial supply of 10,000 tokens minted to the deployer,
+owner-only minting, and holder-initiated burning of the caller's own
+tokens.
 
-| Path | Purpose |
-| --- | --- |
-| [`code/Lak7alToken42.sol`](code/Lak7alToken42.sol) | Solidity token contract source |
-| [`documentation/`](documentation/) | Project overview and contract behavior |
-| [`deployment/`](deployment/) | Deployment status and prerequisites |
+## Token parameters
 
-## Token at a glance
+  Property         Current design
+  ---------------- ------------------------------------------------
+  Name             `lak7al42`
+  Symbol           `HS42`
+  Network          Ethereum (Sepolia planned for test deployment)
+  Standard         ERC-20
+  Decimals         18 (OpenZeppelin default)
+  Initial supply   10,000 HS42
+  Minting          Current owner only
+  Burning          Holder burns own balance
+  Maximum supply   No cap currently implemented
 
-| Property | Value |
-| --- | --- |
-| Token name | `lak7al42` |
-| Symbol | `HS42` |
-| Standard in source | OpenZeppelin ERC-20 |
-| Decimals | 18 (the OpenZeppelin ERC-20 default) |
-| Initial supply | 10,000 tokens, minted to the deployer in the constructor |
-| Additional minting | An owner-only mint function is intended; it is currently uncompilable |
-| Burning | A holder burn function is intended; it is currently uncompilable |
-| Network / contract address | Not specified / not deployed |
+Amounts passed to ERC-20 functions are base units. With 18 decimals, 1
+HS42 = 10\^18 base units.
 
-The name includes `42` to meet the project brief's naming constraint. The source uses OpenZeppelin's ERC-20 and ownership contracts rather than implementing token accounting itself. See [`documentation/CONTRACT.md`](documentation/CONTRACT.md) for the source-based behavior and known issues.
+## Repository structure
 
-## Build and deployment status
+``` text
+tokenizer/
+├── README.md
+├── code/
+│   ├── src/Token42.sol
+│   ├── test/Token42.t.sol
+│   ├── script/DeployToken42.s.sol
+│   ├── foundry.toml
+│   └── remappings.txt
+├── deployment/
+│   ├── README.md
+│   └── addresses.json
+└── documentation/
+    ├── architecture.md
+    ├── tokenomics.md
+    ├── security.md
+    └── usage.md
+```
 
-The contract imports OpenZeppelin Contracts from the moving `master` branch and has no dependency lockfile, compiler configuration, or test suite in this repository. In addition, the source contains compile-time errors documented in [`deployment/README.md`](deployment/README.md). As a result, there is no verified build or deployment procedure to follow yet.
+## Technology choices
 
-The project brief recommends using a test network and documenting the network and contract address after deployment. Neither has been recorded here. Do not use real funds or advertise a deployment until the source compiles, behavior has been tested, and the deployed address has been verified.
+-   Ethereum: selected target blockchain.
+-   Solidity: smart-contract language.
+-   ERC-20: standard fungible-token interface.
+-   OpenZeppelin Contracts: reusable ERC-20 and ownership
+    implementations. Pin a specific release; do not depend on a mutable
+    `master` branch.
+-   Foundry: compilation, testing, scripting, and deployment.
 
-## Documentation
+## Build and test
 
-- [`documentation/PROJECT.md`](documentation/PROJECT.md) — purpose, design summary, and scope.
-- [`documentation/CONTRACT.md`](documentation/CONTRACT.md) — token properties, intended operations, and implementation limitations.
-- [`deployment/README.md`](deployment/README.md) — current deployment status and prerequisites.
+From `code/`:
 
-## License
+``` bash
+forge build
+forge test -vv
+```
 
-The Solidity source declares the SPDX identifier `MIT`. This repository does not currently include a separate license file.
+Do not claim tests pass until they have actually been run successfully.
+
+## Deployment record
+
+-   Planned test network: Sepolia
+-   Chain ID: `11155111`
+-   Contract address: `PENDING`
+-   Deployer / owner: `PENDING`
+-   Explorer URL: `PENDING`
+
+Never commit private keys, seed phrases, or API secrets.
+
+## Purpose and limitations
+
+This project demonstrates ERC-20 implementation, supply management,
+access control, testing, and deployment. This documentation makes no
+claim of market value, asset backing, liquidity, financial return, or
+independent security audit.
