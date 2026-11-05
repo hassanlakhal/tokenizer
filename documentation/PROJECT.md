@@ -9,7 +9,7 @@ This repository contains one Solidity contract. It does not specify a particular
 - **Symbol:** `HS42`.
 - **Token interface:** OpenZeppelin ERC-20.
 - **Initial issuance:** 10,000 tokens are assigned to the deploying account in the constructor.
-- **Supply changes:** The source intends to let the owner mint more tokens and let holders burn their own tokens. These functions currently contain compile-time errors; see [the contract reference](CONTRACT.md).
+- **Supply changes:** The source intends to let the owner mint more tokens and let holders burn their own tokens.
 - **Ownership:** The contract inherits OpenZeppelin `Ownable`. The intended mint permission is restricted to the owner. The source does not configure multisignature ownership.
 
 The contract inherits standard ERC-20 transfer and allowance behavior. The source does not define a separate use for the token, a supply cap, fees, or additional governance rules.
