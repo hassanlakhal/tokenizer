@@ -10,9 +10,9 @@ contract Lak7alToken42 is ERC20, Ownable{
     }
     
     function mint(address to, uint256 amount) OnlyOwner external {
-        _mint(to, amount);
+        _mint(to, amount * (10 ** desimals()));
     }
-    
+
     function burn(unit256 amount) external{
         _burn(msg.sender, amount);
     }
