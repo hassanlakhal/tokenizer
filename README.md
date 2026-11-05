@@ -2,8 +2,6 @@
 
 Lak7alToken42 is a Solidity token base on Tokenizer project . The contract declares an ERC-20 token named **lak7al42** with the symbol **HS42**.
 
-> **Status: not ready to compile or deploy.** The current contract contains compile-time errors. No network, deployed contract address, or verified explorer listing is present in this repository. Do not treat this project as a usable or production-ready token.
-
 ## Project layout
 
 | Path | Purpose |
