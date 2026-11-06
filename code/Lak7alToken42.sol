@@ -12,7 +12,7 @@ contract Lak7alToken42 is ERC20, Ownable{
     }
     
     function mint(address to, uint256 amount) onlyOwner external {
-        require(amount > MaxSupply, "not have enough Supply for mint");
+        require(totalSupply() + amount <=  MaxSupply, "not have enough Supply for mint");
         _mint(to, amount * (10 ** decimals()));
     }
 
