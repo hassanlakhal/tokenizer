@@ -74,12 +74,7 @@ The intended public test network for initial deployment is Sepolia. In Remix, se
 Fill in the actual details after deployment:
 - Network: `Sepolia`
 - Chain ID: `11155111`
-- Contract address: `TO_BE_FILLED_AFTER_DEPLOYMENT`
-- Deployer / initial owner: `TO_BE_FILLED`
-- Deployment transaction: `TO_BE_FILLED`
-- Explorer URL: `TO_BE_FILLED`
-
-Never commit private keys, seed phrases, or API secrets.
+- Contract address: `0x05f0f1F36CC4A811711Cf63a24F0dA68ce1f6a09`
 
 ## Documentation
 
