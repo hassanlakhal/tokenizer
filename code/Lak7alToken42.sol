@@ -4,19 +4,19 @@ import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contr
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/access/Ownable.sol";
 
 contract Lak7alToken42 is ERC20, Ownable{
-    unit256 MaxSupply = 1000000 * (10 ** decimals());
+    uint256 MaxSupply = 1000000 * (10 ** decimals());
 
     constructor() 
     ERC20("lak7al42", "HS42") Ownable(msg.sender){
         _mint(msg.sender, 10000 * (10 ** decimals()));
     }
     
-    function mint(address to, uint256 amount) OnlyOwner external {
+    function mint(address to, uint256 amount) onlyOwner external {
         require(amount > MaxSupply, "not have enough Supply for mint");
-        _mint(to, amount * (10 ** desimals()));
+        _mint(to, amount * (10 ** decimals()));
     }
 
-    function burn(unit256 amount) external{
+    function burn(uint256 amount) external{
         _burn(msg.sender, amount);
     }
 }
