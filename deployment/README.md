@@ -1,19 +1,53 @@
-# Deployment status
+# Deployment Record
 
-**No deployment is documented or verified.** This repository does not specify a target network or include a deployed contract address, transaction, or block-explorer link. Do not infer a deployment from the presence of the Solidity source.
+This directory records deployment information. Fill in values only after confirming them in Remix, the connected wallet, and the relevant block explorer.
 
-## Why deployment is pending
+## Target network
 
-[`../code/Lak7alToken42.sol`](../code/Lak7alToken42.sol) has compile-time errors: the `OnlyOwner` modifier and `desimals()` function are undefined, and `unit256` is not a valid Solidity type. The imports also reference the mutable OpenZeppelin `master` branch. Consequently, this repository does not currently provide a reproducible, verified build.
+- Intended initial public network: Sepolia
+- Chain ID: `11155111`
+- Deployment tool: Remix IDE (**Deploy & Run Transactions**)
+- Wallet environment: **Injected Provider**
 
-## Before deployment
+## Deployment details
 
-The following work is still required:
+| Field | Value |
+|---|---|
+| Network | Sepolia (planned) |
+| Chain ID | 11155111 |
+| Contract address | `PENDING` |
+| Deployment transaction | `PENDING` |
+| Deployer address | `PENDING` |
+| Initial owner | `PENDING` |
+| Explorer page | `PENDING` |
+| Deployment date | `PENDING` |
+| Solidity compiler | `PENDING` |
+| Compiler settings | `PENDING` |
+| OpenZeppelin version | `PENDING` |
 
-1. Correct and review the Solidity source.
-2. Pin the OpenZeppelin Contracts dependency and select a compatible Solidity compiler.
-3. Add a reproducible build and test setup, then verify constructor, transfer, ownership, mint, and burn behavior.
-4. Choose a test network and deploy there first, as recommended by the project brief.
-5. Record the network, contract address, deployment transaction, and verified explorer page here after confirming them.
+## Before deployment in Remix
 
-No commands or addresses are provided because the source has not yet been made buildable and no network has been selected. Do not deploy with real funds based on this documentation.
+- [ ] Compile the final contract successfully in Solidity Compiler.
+- [ ] Review compiler warnings.
+- [ ] Run automated tests in Solidity Unit Testing, if test files are provided.
+- [ ] Perform manual interaction tests in a local Remix VM.
+- [ ] Confirm token name, symbol, initial supply, and permissions.
+- [ ] Confirm that the no-cap minting policy is intentional.
+- [ ] Select the intended public test network in the wallet.
+- [ ] Confirm Remix uses Injected Provider and displays the intended account/network.
+- [ ] Protect wallet secrets; never enter a seed phrase into project documentation.
+
+## After deployment
+
+- [ ] Save the contract address.
+- [ ] Save the deployment transaction hash.
+- [ ] Confirm the deployer and `owner()` address.
+- [ ] Read `name`, `symbol`, `decimals`, and `totalSupply` from the deployed contract.
+- [ ] Confirm the initial recipient balance.
+- [ ] Verify the contract source on the Sepolia block explorer.
+- [ ] Test basic interactions on Sepolia.
+- [ ] Update the root README and this deployment record.
+
+## addresses.json
+
+Update `addresses.json` only with verified values. Do not invent or guess addresses.

@@ -1,41 +1,96 @@
-# Lak7alToken42
+# Lak7al Token 42 (HS42)
 
-Lak7alToken42 is a Solidity token base on Tokenizer project . The contract declares an ERC-20 token named **lak7al42** with the symbol **HS42**.
+## Overview
 
-> **Status: not ready to compile or deploy.** The current contract contains compile-time errors. No network, deployed contract address, or verified explorer listing is present in this repository. Do not treat this project as a usable or production-ready token.
+Lak7al Token 42 (`HS42`) is an Ethereum fungible token designed to follow the ERC-20 standard. The smart contract uses OpenZeppelin's ERC-20 implementation and ownership utilities.
 
-## Project layout
+The current design provides:
+- Standard ERC-20 transfers, approvals, and delegated transfers.
+- An initial supply of 10,000 tokens minted to the deploying account.
+- Owner-restricted minting.
+- Holder-initiated burning of the caller's own tokens.
 
-| Path | Purpose |
-| --- | --- |
-| [`code/Lak7alToken42.sol`](code/Lak7alToken42.sol) | Solidity token contract source |
-| [`documentation/`](documentation/) | Project overview and contract behavior |
-| [`deployment/`](deployment/) | Deployment status and prerequisites |
+There is currently no maximum supply cap. The owner can mint additional tokens as long as the transaction satisfies the contract's rules.
 
-## Token at a glance
+## Token parameters
 
-| Property | Value |
-| --- | --- |
+| Parameter | Value |
+|---|---|
 | Token name | `lak7al42` |
 | Symbol | `HS42` |
-| Standard in source | OpenZeppelin ERC-20 |
-| Decimals | 18 (the OpenZeppelin ERC-20 default) |
-| Initial supply | 10,000 tokens, minted to the deployer in the constructor |
-| Additional minting | An owner-only mint function is intended; it is currently uncompilable |
-| Burning | A holder burn function is intended; it is currently uncompilable |
-| Network / contract address | Not specified / not deployed |
+| Blockchain | Ethereum |
+| Token standard | ERC-20 |
+| Decimals | 18 (OpenZeppelin ERC20 default) |
+| Initial supply | 10,000 HS42 |
+| Mint permission | Contract owner only |
+| Burn permission | Each holder can burn their own tokens |
+| Maximum supply | No cap currently implemented |
 
-The name includes `42` to meet the project brief's naming constraint. The source uses OpenZeppelin's ERC-20 and ownership contracts rather than implementing token accounting itself. See [`documentation/CONTRACT.md`](documentation/CONTRACT.md) for the source-based behavior and known issues.
+Amounts passed to ERC-20 functions are expressed in the smallest unit. With 18 decimals, 1 HS42 equals `1 * 10^18` base units.
 
-## Build and deployment status
+## Repository structure
 
-The contract imports OpenZeppelin Contracts from the moving `master` branch and has no dependency lockfile, compiler configuration, or test suite in this repository. In addition, the source contains compile-time errors documented in [`deployment/README.md`](deployment/README.md). As a result, there is no verified build or deployment procedure to follow yet.
+```text
+tokenizer/
+├── README.md
+├── code/
+│   └── Lak7alToken42.sol
+├── deployment/
+│   ├── README.md
+│   └── addresses.json
+└── documentation/
+    ├── architecture.md
+    ├── tokenomics.md
+    ├── security.md
+    └── usage.md
+```
 
-The project brief recommends using a test network and documenting the network and contract address after deployment. Neither has been recorded here. Do not use real funds or advertise a deployment until the source compiles, behavior has been tested, and the deployed address has been verified.
+This is a suggested structure for the submitted project. The Solidity source is kept in the required root `code/` folder. Remix workspace files may also be kept in the Remix workspace; export or copy the final reviewed source into this folder for submission.
 
-## Purpose and limitations
+## Technology choices
 
-This project demonstrates ERC-20 implementation, supply management,
-access control, testing, and deployment. This documentation makes no
-claim of market value, asset backing, liquidity, financial return, or
-independent security audit.
+- **Ethereum:** selected as the target blockchain.
+- **Solidity:** used to implement the smart contract.
+- **ERC-20:** provides a widely supported fungible-token interface.
+- **OpenZeppelin Contracts:** provides established ERC-20 and ownership implementations rather than reimplementing the standard manually.
+- **Remix IDE:** used to write, compile, test, and deploy the contract through its browser-based development environment.
+
+Use a specific, reviewed OpenZeppelin Contracts release. Avoid importing source from a mutable `master` branch. Record the exact OpenZeppelin version and compiler version used for the final deployment.
+
+## Compile and test in Remix
+
+1. Open Remix IDE and create or open the Solidity file for the token.
+2. Confirm the OpenZeppelin imports resolve and the compiler version matches the Solidity pragma and selected dependency version.
+3. Open **Solidity Compiler**, select the intended compiler version, and compile the contract.
+4. Open **Solidity Unit Testing** if you have written Solidity unit tests, then run the test suite and save the actual results.
+5. Also use **Deploy & Run Transactions** to perform manual interaction checks. Test both the owner account and a different account.
+
+Do not report tests as passing until they have actually been run successfully. See [Usage Guide](documentation/usage.md) for the detailed Remix workflow.
+
+## Deployment
+
+The intended public test network for initial deployment is Sepolia. In Remix, select **Injected Provider** in Deploy & Run Transactions after connecting a wallet configured for Sepolia. Confirm the network and account in the wallet before deploying.
+
+Fill in the actual details after deployment:
+- Network: `Sepolia`
+- Chain ID: `11155111`
+- Contract address: `TO_BE_FILLED_AFTER_DEPLOYMENT`
+- Deployer / initial owner: `TO_BE_FILLED`
+- Deployment transaction: `TO_BE_FILLED`
+- Explorer URL: `TO_BE_FILLED`
+
+Never commit private keys, seed phrases, or API secrets.
+
+## Documentation
+
+- [Architecture](documentation/architecture.md)
+- [Tokenomics](documentation/tokenomics.md)
+- [Security considerations](documentation/security.md)
+- [Usage guide](documentation/usage.md)
+- [Deployment record](deployment/README.md)
+
+## Project purpose
+
+The project demonstrates the design, implementation, testing, and deployment of an ERC-20 token. It also demonstrates how token supply management and ownership permissions can be implemented and tested in a smart contract.
+
+The project does not claim that the token has a market value, is backed by assets, or provides financial returns.
