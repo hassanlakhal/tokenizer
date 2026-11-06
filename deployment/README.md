@@ -15,7 +15,7 @@ This directory records deployment information. Fill in values only after confirm
 |---|---|
 | Network | Sepolia (planned) |
 | Chain ID | 11155111 |
-| Contract address | `PENDING` |
+| Contract address | `0x05f0f1F36CC4A811711Cf63a24F0dA68ce1f6a09` |
 | Deployment transaction | `PENDING` |
 | Deployer address | `PENDING` |
 | Initial owner | `PENDING` |
